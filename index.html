@@ -1,7 +1,1042 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>Monumental Gaming - DarkRP</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js" type="text/javascript">
+    </script>
+    <link href="http://monumentalgaming.net/uploads/monthly_2016_05/mgau.png.36b501a8ff5156d608e9039836a33373.png" rel="shortcut icon" />
+    <style type="text/css">
+        /*<![CDATA[*/
+        
+        * {
+            border: 0px;
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 300;
+            background-color: #ffffff;
+            background-image: url(http://monumentalgaming.net/uploads/monthly_2016_05/gm_flatgrasscontrap.jpg.a8ba9d917d7bddc54a2400c61af957c0.jpg);
+            background-position: 50% 0%;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            color: #000000;
+            position: relative;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        h1 {
+            font-weight: 300;
+            text-align: center;
+            padding-bottom: 25px;
+            color: #ffffff
+        }
+        
+        h2 {
+            font-weight: 500;
+        }
+        
+        h3 {
+            margin-top: 20px;
+            font-weight: 500;
+            background-color: #4E5F74;
+            padding: 15px;
+            color: #ffffff;
+        }
+        
+        h3.red {
+            background-color: #B93941;
+        }
+        
+        h3 img {
+            float: right;
+        }
+        
+        h3:hover {
+            cursor: pointer;
+            cursor: hand;
+        }
+        
+        #h3:red {
+            cursor: pointer;
+            cursor: hand;
+        }
+        
+        h4 {
+            margin-top: 20px;
+            font-weight: 500;
+        }
+        
+        p {
+            text-align: justify;
+        }
+        
+        #expandall {
+            position: fixed;
+            right: 1px;
+            top: 1px;
+            background-color: #1ABC9C;
+            padding: 5px 10px;
+            color: #ffffff;
+        }
+        
+        #expandall:hover {
+            cursor: pointer;
+            cursor: hand;
+        }
+        
+        #footer {
+            padding-top: 25px;
+            padding-bottom: 15px;
+        }
+        
+        #footer p {
+            text-align: center;
+            font-size: 10px;
+        }
+        
+        .dropdown {
+            background-color: #fffff;
+            padding-top: 15px;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 15px;
+            display: none;
+            line-height: 22px;
+            font-size: 16px;
+        }
+        
+        .dropdown li {
+            list-style-type: circle;
+            margin-top: 5px;
+        }
+        
+        .dropdown li ul {
+            padding-left: 50px;
+        }
+        
+        .dropdown li ul li {
+            list-style-type: square;
+        }
+        
+        .dropdown ul.tips li {
+            list-style-image: url(data:image/png;base64,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);
+            font-style: italic;
+        }
+        
+        .flipbtn {
+            position: fixed;
+            right: 1px;
+            top: 40px;
+            background-color: #1ABC9C;
+            padding: 5px 10px;
+            color: #ffffff;
+        }
+        
+        .flipbtn:hover {
+            cursor: pointer;
+            cursor: hand;
+        }
+        
+        .flipcard {
+            position: relative;
+        }
+        
+        .flipcard.h.flip .front {
+            transform: rotateY(180deg);
+        }
+        
+        .flipcard.h.flip .back {
+            transform: rotateY(0deg);
+        }
+        
+        .flipcard.h .back {
+            width: 100%;
+            transform: rotateY(-180deg);
+        }
+        
+        .flipcard .front, .flipcard .back {
+            position: absolute;
+            box-sizing: border-box;
+            transition: all 0.5s ease-in;
+            background-color: #ffffff;
+            padding: 10px;
+            backface-visibility: hidden;
+        }
+        
+        .recentchanges {
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
+            background-color: #3D648A;
+            color: #ffffff;
+            margin-top: 20px;
+        }
+        
+        .title {
+            margin-top: 30px;
+        }
+        /*]]>
+    </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <div class="flipbtn"><img alt="Help page" class="icon icons8-Expand input1" height="24" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAACM0lEQVRIiZWWMWsUURSFvzssYhFCqiWkkBAsJKRKFSzVrGJhLSHY+QfsxFLEyjJYByG/QIKwWsZC0EYIQaJioRKNRIMhSvAci52Jk/Htm+TAwOXNfefec97ufRNkIOlMRPSAy8CM7W5EFMA2sA70gSfAZkTkqP7BNrbHJS3Z/up27Nhetj1pu72ApJ6k95IOGerxMEj6LOl6W/eLkvYlHZKeMP5t+9Z/SkpbLtjeyzT5x3bf9j3ba5m8A9sLR4p44PnbnBWS+rZPl/mjkl5m1GxJOgtQlDVuA1MNRUfiiHgeEb8AImI3Il5U7+v7SnQj4q5tsD1heysjucKa7bGSqGv7dUv+D9vnOsAloJs4cKrfdhmfB57ZfmV7LiJmEjn1eBS41gEu1uVFxDDZ2J4FZuvrmVyA+Q4wXRFXaMQrwFJzHXgAzDWVNzDdSdlTl2x7LCKmgDfVwZbvv7dYBDBa1AlTsoGrth/ZvjmszZxN1eAiIg47SMWpYZbLL7FbMJiKqc6bKJoLLQdMRKwXQL9uT5XQ/KOlChyjUL8AnkbElzaLUupaLPoZEY+LiPhke6VZfRjZMTsHWAU2inLzfeBdPSFh0SlJI7ZHJI0AnQz5NnAnIlQn6Unaz8yWPdsfa8+w3ANJi0k3bN/IbLR99HZLxAdOXTiNIlckfTjpjebBRF7IkgNIQtKE7Ye2v+XUlOQ7kpYlTaXIh35rlMmTtnsRMQ/MAOMezJltYMN2H1iNiKGfLX8B/UrQcYMW1PEAAAAASUVORK5CYII=" width="24" /></div>
+    <div id="expandall"><img alt="Expand all button" class="icon icons8-Expand" height="24" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAACHElEQVRIie2VsWsUYRTE5x3LEVKIHOkkIUgQCwliIWIZrFKIoKWVhURIKRjEViwEU1nmP7ARqxSWVlFEiBqIglEkBNHjXBMl8eZnke9ws9nbu9LCqb6FeTPfvP14L4BlSWclNSRZ0m9J34GPEfEkIh6oBsCcpMuSJiWNScqShiWtZUn8aKluLCImgdU68WRwLCJm0gXLmBaQk2CbApaAkSEMmsAiFbCdN1IcAcUiSXotaXeQgaRd4FWvHjigJWCryh3YBi4eIFcnOA+0+2jkAtZ77Sm1iGR+pkZ8Algv1pbOX2T7qe1u6vk80CmRNoDyIxCQ2X7W4yb+T2ABWLTdtb2SRcRjSauSbkn6JWlN0lJETEhSRLQkNSsCNCLiROH7m6Qbkh5JyiJiR9J2ZXTbU7ZfsP/CrvZrke1LQNv2Z9vnbPejHgYwAhwZgtcCWsMr/8c/A2B0mJ9sewSoesa1RSdtv7XdBq7UXGIW2LL9EpjqJ3YduAc0bQuYAT4VxkW7KklKWJxjG7YvJI3M9h3bNwUsA13bD4FrQKc4jFKS0SoD2+8LPIDc9jxwF9izvVI57ArzZRM4VdOiaWCzdtgxYFwP8b9mbed9NHIBX0sxe1gAqtZgOUXD9lyxtnDOG0q7lMMbbVz7C3wQGhExXqr9ey4mKKEL3B+iRbeBvX4tyiS9kXS65xgRkrQj6QPQGWQQET8kPQeOR8RoSefdH0aUSn204+xNAAAAAElFTkSuQmCC" width="24" /></div>
+    <div class="title">
+        <h1>lol</h1>
+    </div>
+    <div class="flipcard h">
+        <div class="front">
+            <h2>Welcome!</h2>
+            <p>Welcome to Monumental Gaming DarkRP. To ensure that all our players have the best experience possible we have a comprehensive rule set that must be followed at all times. Please take some time to read through the rules and if you have any questions or need assistance with rule-breakers, please contact the staff team using admin chat e.g. @ help I'm being RDM'd.</p>
+            <div class="recentchanges">
+                <h2 class="c1">Recent Changes</h2>
+                <p><strong>28 Jan</strong> - Rules updated to include many small rules which were being enforced but not acknowledged. Key changes include the reintroduction of kidnapping, new base standards for stores and thieves are now required to advert solo raids.</p>
+            </div>
+            <h3>1. Don't be a minge.</h3>
+            <div class="dropdown">
+                <ul>
+                    <li>Do not advertise other servers.</li>
+                    <li>Do not harass or bully other players.</li>
+                    <li>Do not intentionally annoy people for your own amusement. This includes the use of high frequency/monotone sound emitters.</li>
+                    <li>Do not put innocent lives at risk - nor act as a meat shield for others.</li>
+                    <li>Do not Rope Spam (this includes making signs around the map with them).</li>
+                    <li>Prop Spam is a permanent ban regardless of size, this is done to protect player progress.</li>
+                    <li>When casting a demotion, discuss why in OOC first and give time for the person being demoted to respond e.g. // Demotion of Johnny McSmith for Failrp and NLR any objections?
+                        <ul>
+                            <li>Do not start a vote if objections are raised.</li>
+                        </ul>
+                    </li>
+                    <li>When using any donator commands (!gag, !mute) you must inform staff via admin chat (@) before doing so.</li>
+                </ul>
+            </div>
+            <h3>2. Roleplay (RP) properly.</h3>
+            <div class="dropdown">
+                <ul>
+                    <li>Do not abuse /advert or /ooc, this means if you are being raided you cannot do "/advert COPS I'M BEING RAIDED HELP!". Use /cr to report a crime to them instead.</li>
+                    <li>Do not AFK money farm, this means you cannot camp your base with printers and watch videos until you get raided.</li>
+                    <li>Do not job abuse, this means you cannot change to a shop class, spawn shipments and change back to your previous job straight after.</li>
+                    <li>Do not metagame e.g. if a hitman wants to see the Mayor you may not say "No way, you're a hitman and you have a hit on him."</li>
+                    <li>Do not Random Death Match (RDM). You must have a valid RP reason (generally life-threatening) for shooting a person.</li>
+                    <li>Follow your job description accordingly; don't make your job into something it's not designed to be.</li>
+                    <li>Government jobs are not allowed to own Money Printers, unless it is stored in a bank.</li>
+                    <li>If any transaction involving currency has occurred, the seller must provide said goods or a refund if sale is unavailable.</li>
+                    <li>If custom laws have been added to the law board and the Mayor is killed, all laws on the law board must still be followed.</li>
+                    <li>If you trespass into someone's property they reserve the right to kill you without warning, a public shop front would not be considered trespassing.</li>
+                    <li>One handed and melee weapons are legal by default.
+                        <ul>
+                            <li>While one handed and melee weapons are legal, a cop can still arrest you for having the weapon drawn in public.</li>
+                        </ul>
+                    </li>
+                    <li>Mugging players is not allowed on this server. Thieves may pickpocket as an alternative.</li>
+                    <li>Stealing during an RP transaction is not allowed, regardless of the job you are playing as.</li>
+                    <li>Two handed weapons are illegal by default unless otherwise stated on the law board.</li>
+                </ul>
+            </div>
+            <h3>3. Apply roleplay concepts properly.</h3>
+            <div class="dropdown">
+                <ul>
+                    <li>Follow Fear RP, you should value your RP life and not try to evade a person pointing a gun at your head.
+                        <ul>
+                            <li>If a player has a gun pointed at your head you may not draw a weapon on them.</li>
+                            <li>When under FearRP you must follow the instigators orders. Getting killed for not following their orders is not considered RDM.</li>
+                            <li>When initiating FearRP, please be reasonable with what you request of the victim. Ordering the victim to drop weapons or money is considered mugging.</li>
+                            <li>When initiating FearRP, you must point your weapon at the victim for Fear RP to apply. If you turn around or stop threatening the victim at any point it will not be considered FailRP if he draws a gun and kills you.</li>
+                            <li>FearRP does not apply to law enforcement roles or the terrorist.</li>
+                        </ul>
+                    </li>
+                    <li>Follow New Life Rule (NLR).
+                        <ul>
+                            <li>If you die, do not return to the place you were killed within 5 minutes. If you died on your property you may return - however <em>only if there is not an ongoing raid</em>. You must wait for any raids to complete before returning.</li>
+                            <li>NLR also means that you must forget details about your past life. A police officer must not arrest the person that killed them, however if the player is wanted by the police, the officer may attempt to arrest.</li>
+                        </ul>
+                    </li>
+                    <li>No gangs or groups are at war by default. To start a war the gang or group leader must advert who the war is against and ask them to accept:
+                        <ul>
+                            <li>Gangs must have 2 members (including the leader) to commence a war.</li>
+                            <li>If the opposing leader declines or doesn't reply you may not commence a war.</li>
+                            <li>The Police/Government can not initiate or accept a war.</li>
+                            <li>The war is over once the leader of either gang/group is killed.</li>
+                            <li>You must /advert "War on X, accept?" where X is the gang or group you want to be at war with.</li>
+                            <li>You must /advert "War over" once either leader has been killed.</li>
+                            <li>You must wait 10 minutes between wars.</li>
+                        </ul>
+                    </li>
+                    <li>When kidnapping or being kidnapped you must abide by the following rules:
+                        <ul>
+                            <li>Kidnappings can only last up to 10 minutes. If no one pays the ransom you may kill or release the victim.</li>
+                            <li>Only two thieves working together or a gang with two members (including the leader) may kidnap.</li>
+                            <li>The maximum you can ransom a player for is $10,000.</li>
+                            <li>You may not kidnap citizens or jobs that work alone.</li>
+                            <li>You must advert kidnap before commencing a kidnapping and also advert after it has been completed e.g. /advert Kidnap or /advert Kidnap over.</li>
+                            <li>You must follow Fear RP when being kidnapped.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <h3>4. Don't abuse any cheats or unintentional mechanics.</h3>
+            <div class="dropdown">
+                <ul>
+                    <li>Bunny hopping is not allowed.</li>
+                    <li>Do not use chairs to avoid death.</li>
+                    <li>Money hacking, accepting/picking up hacked money or conspiring with money hackers will result in a permanent ban.</li>
+                    <li>Props must be used <strong>only</strong> for building. Abusing props (by prop surfing or glitching) is not allowed.</li>
+                    <li>The use of any cheats/hacks/scripts/macros will result in a permanent ban.</li>
+                    <li>You are not allowed to manipulate the colours/materials of a player or world object.</li>
+                </ul>
+            </div>
+            <h3>5. Build fair and roleplay focused bases.</h3>
+            <div class="dropdown">
+                <ul>
+                    <li>Custom vehicles are not allowed.</li>
+                    <li>All fading doors must be lockpickable and have an attached keypad/button on both sides which is clearly visible.
+                        <ul>
+                            <li>Players should be able to find the keypad/button within 5 seconds of approaching the door.</li>
+                            <li>The keypad must open for at least 4 seconds.</li>
+                        </ul>
+                    </li>
+                    <li>Any windows must be above waist height and below head height (not above), and must be open for at least a second. (Don't tap open/close windows)</li>
+                    <li>Do not use constraints unless absolutely necessary (only weld when saving builds). Ensure you turn off all weld/no collide options in precision tool/stacker/easy weld.</li>
+                    <li>Do not black box, this means making all the walls in your base completely black and making players unable to determine where they are.</li>
+                    <li>Doors must be built with a single prop to ensure they can be lockpicked.</li>
+                    <li>Fading doors are to be used as doors or windows only. Don't make bridges/staircases that fade.</li>
+                    <li>Gun stores and other shops must be built within the following guidelines:
+                        <ul>
+                            <li>Stores must have a front counter area where trading with customers takes place. The shop owner must man the counter and also must be clearly visible to facilitate roleplay.</li>
+                            <li>Stores without a front counter are not in the best interests of RP and will be removed.</li>
+                            <li>The store owner must be in view at the front counter and be readily available to help customers.</li>
+                            <li>The store itself should be primarily defended from inside the base. This means unmanned kiosks are not allowed.</li>
+                        </ul>
+                    </li>
+                    <li>No one-way visible props/materials/trickery is allowed. Both sides of a prop must be equally visible.</li>
+                    <li>No-collided props to walk through is unrealistic and not allowed, even if it is transparent.</li>
+                    <li>Only two doors may be used in a base. A single door is for the primary entrance, and a secondary door may be used to defend valuables.</li>
+                    <li>Players that are building may place a sign disallowing people from raiding their base, only if:
+                        <ul>
+                            <li>They are currently building.</li>
+                            <li>Base rules firmly apply when the base has valuables, or has locked doors and a raider is unable to see if it has valuables.</li>
+                        </ul>
+                    </li>
+                    <li>Players must not have to break glass in order to get into your base.</li>
+                    <li>Signs are to be used for RP purposes only and may only be placed on or inside the owners property.</li>
+                    <li>Tunnels must be wide enough for 2 people and must not force the raiders to crouch. World doors and fading doors are the only allowed "funnel" of one person at a time.</li>
+                    <li>When pasting a save with advanced duplicator, you <strong>must</strong> ensure that it is pasted Frozen and Without Constraints.</li>
+                    <li>You may not block key routes or build on roads or footpaths. This includes making toll booths for either roads or tunnels.</li>
+                    <li>You may not use fences that can be shot through as apart of your base defences.</li>
+                    <li>You may not enclose public resources or NPC's within personal property e.g. vending machines/drug dealer etc.</li>
+                    <li>You may only purchase a door if you are using the interior of the building the door is attached to.</li>
+                </ul>
+            </div>
+            <h3>6. Be fair when raiding.</h3>
+            <div class="dropdown">
+                <ul>
+                    <li>Do not steal items which are crucial for that persons job (e.g. the bomb generator or the microphone), they may be destroyed.</li>
+                    <li>Do not kill bystanders unless they pose a threat to your raid.</li>
+                    <li>If you die during a raid you can not come back after to keep helping with the raid.</li>
+                    <li>Only raid the same store/base 15 minutes after your previous raid was finished.</li>
+                    <li>Raids can only last up to 10 minutes, do not intentionally stall if you have finished the raid.</li>
+                    <li>You may not heal yourself (includes health stations and health packs) or pick up additional armour during a raid.</li>
+                </ul>
+            </div>
+            <br/>
+            <h2>Job Descriptions and Rules</h2>
+            <p>All job descriptions and rules are listed below in their respective tabs.</p>
+            <h3>Job Descriptions and Rules</h3>
+            <div class="dropdown">
+                <h3 class="red">Generic Gang Rules (Applicable to Bloods, Crips &amp; Mafia)</h3>
+                <div class="dropdown">
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li>All raids must begin by the leader typing <strong><em>/advert raid</em></strong>, and <strong><em>/advert raid complete</em></strong> when its over.</li>
+                        <li>Gangs are not allowed to be private or friends only.</li>
+                        <li>Gangs need at least 2 members (including the Leader) to raid.</li>
+                        <li>Gangs cannot raid without their leader; if the leader dies the raid is over.</li>
+                        <li>Raiders must wait 10 seconds after advertising before commencing the raid.</li>
+                    </ul>
+                    <h4>Tips:</h4>
+                    <ul class="tips">
+                        <li>Don't shoot store owners or security guards unless they present a valid threat to you.</li>
+                        <li>If you have a base of valuables, leave at least one person behind to scout for sneaky raiders. A solution to this is to store items in defended establishments such as Banks.</li>
+                        <li>Scout out establishments before you raid them. Wait for key opportunities such as the owners going to go get food.</li>
+                        <li>You may hold hostages inside the store if necessary.</li>
+                    </ul>
+                </div>
+                <h3 class="red">Banker</h3>
+                <div class="dropdown">
+                    <h4>Description:</h4>
+                    <ul>
+                        <li>As a Banker, set up a shop and store items for people.</li>
+                        <li>Rent out safety deposit boxes to customers.</li>
+                    </ul>
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li>As a Banker, your Bank must be open to the public.</li>
+                        <li>As a Banker, you cannot steal from money printers, understand this is a bannable offence as it is considered FailRP.</li>
+                        <li>Only the banker and his guards can defend the bank.</li>
+                    </ul>
+                    <h4>Tips:</h4>
+                    <ul class="tips">
+                        <li>Offer gangs special deals for storing their items. They can store their items in a private vault and reduce the need for them to have a base.</li>
+                    </ul>
+                </div>
+                <h3 class="red">Black Market Dealer</h3>
+                <div class="dropdown">
+                    <h4>Description:</h4>
+                    <ul>
+                        <li>Effectively an illegal Gun Dealer.</li>
+                        <li>Can source gun shipments, armour and ammo.</li>
+                        <li>Can also source other weapons such as RPG's.</li>
+                        <li>Keeping transactions on the down low is recommended.</li>
+                    </ul>
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li>As a Black Market Dealer, you can not have security guards.</li>
+                        <li>As a Black Market Dealer, you can sell weapons from your store or in public areas of the map. You may not sell from other players property.</li>
+                        <li>As a Black Market Dealer, you do not have a gun license to sell weapons to the public. Selling guns risks prosecution from the Police.</li>
+                    </ul>
+                </div>
+                <h3 class="red">Bloods &amp; Blood Leader</h3>
+                <div class="dropdown">
+                    <h4>Description:</h4>
+                    <ul>
+                        <li>Organise raids against rival gangs and businesses.</li>
+                        <li>Make money off the production and sale of drugs.</li>
+                        <li>Protect your gangs base.</li>
+                    </ul>
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li><em>See Generic Gang Rules</em></li>
+                    </ul>
+                </div>
+                <h3 class="red">Citizen</h3>
+                <div class="dropdown">
+                    <h4>Description:</h4>
+                    <ul>
+                        <li>A Citizen is expected to follow the law.</li>
+                        <li>They have no specific role in city life.</li>
+                        <li>Can create a custom law abiding job eg: /job Courier.</li>
+                    </ul>
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li>A maximum of two citizens can base together.</li>
+                        <li>As a citizen, you are allowed to have a custom jobs but you are not to make this into a killing (hitman) or raiding class, it must be law abiding.</li>
+                    </ul>
+                </div>
+                <h3 class="red">Crips &amp; Crip Leader</h3>
+                <div class="dropdown">
+                    <h4>Description:</h4>
+                    <ul>
+                        <li>Organise raids against rival gangs and businesses.</li>
+                        <li>Make money off the production and sale of drugs.</li>
+                        <li>Protect your gangs base.</li>
+                    </ul>
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li><em>See Generic Gang Rules</em></li>
+                    </ul>
+                </div>
+                <h3 class="red">Expert Thief</h3>
+                <div class="dropdown">
+                    <h4>Description:</h4>
+                    <ul>
+                        <li>Break into shops and houses and steal things.</li>
+                        <li>Pickpocket people for some extra cash.</li>
+                        <li>This is a solo job, however they are allowed to base and raid with one other thief.</li>
+                    </ul>
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li><em>See Theif Rules</em></li>
+                    </ul>
+                </div>
+                <h3 class="red">Gun Dealer</h3>
+                <div class="dropdown">
+                    <h4>Description:</h4>
+                    <ul>
+                        <li>Supplies the city with weapons, armour and ammo.</li>
+                        <li>Must create a shop and conduct transactions there. Consider hiring security.</li>
+                        <li>Has a Gun License by default.</li>
+                    </ul>
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li>As a Gun Dealer, you must sell weapons to the public from your own store. You may not base with any other shopkeepers.</li>
+                        <li>As a Gun Dealer, you can only sell items from your store.</li>
+                        <li>Selling two-handed weapons to persons without licenses may put you at risk of prosecution from the Police.</li>
+                    </ul>
+                    <h4>Tips:</h4>
+                    <ul class="tips">
+                        <li>Consider hiring a security guard or two. Gun stores are high value targets and as such are often raided.</li>
+                    </ul>
+                </div>
+                <h3 class="red">Hired Goon</h3>
+                <div class="dropdown">
+                    <h4>Description:</h4>
+                    <ul>
+                        <li>Defend illegal stores and criminals bases for a fee.</li>
+                        <li>Offer your services to Thieves, Black Market Dealers and Meth Cooks.</li>
+                    </ul>
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li>As a Hired Goon, you can only work for criminals.</li>
+                        <li>As a Hired Goon, you may not assist with raids.</li>
+                    </ul>
+                </div>
+                <h3 class="red">Hitman</h3>
+                <div class="dropdown">
+                    <h4>Description:</h4>
+                    <ul>
+                        <li>Kills people for money.</li>
+                        <li>People can request a hit by pressing E on the Hitman.</li>
+                        <li>Use /hitprice to change price - no greater than $5000.</li>
+                        <li>Avoid public executions as this can gather the attention of police as well as good samaritans.</li>
+                    </ul>
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li>As a Hitman, you cannot steal any valuables from any property they break into in order to complete a hit.</li>
+                        <li>As a Hitman, you can only accept hits through the hit menu system.</li>
+                        <li>As a Hitman, you can only accept hits if there is a valid reason for it.</li>
+                        <li>As a Hitman, you are allowed to break into your targets property to complete a hit.</li>
+                        <li>Once your hit has been completed you must state the reason in OOC e.g. "// Hit complete. Reason: breaking into requesters property".</li>
+                    </ul>
+                    <h4>Tips:</h4>
+                    <ul class="tips">
+                        <li>Accepting a hit because the target was RDM/RDA is not a valid reason as these are not roleplay concepts.</li>
+                        <li>Examples of legitimate hit reasons would be 'the target raided my base', 'the target kidnapped my boss' or 'the target killed my partner'.</li>
+                        <li>Generally speaking reasons that are subjective e.g. 'the target is ugly' or 'the targets radio music sucks' are not valid hit reasons.</li>
+                        <li>You must know the reason why you are undertaking a hit and the reason must be roleplay based.</li>
+                    </ul>
+                </div>
+                <h3 class="red">Hobo</h3>
+                <div class="dropdown">
+                    <h4>Description:</h4>
+                    <ul>
+                        <li>The lowest member of society.</li>
+                        <li>Build a shack on footpaths and such.</li>
+                        <li>Search dumpsters for items.</li>
+                        <li>Beg for food money.</li>
+                    </ul>
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li>As a Hobo, you are not allowed to buy or own guns or doors.</li>
+                        <li>As a Hobo, you are only allowed melee weapons.</li>
+                    </ul>
+                    <h4>Tips:</h4>
+                    <ul class="tips">
+                        <li>Press the USE button (usually <em>'e'</em>) on the various bins around the server to find food, health and weapons.</li>
+                    </ul>
+                </div>
+                <h3 class="red">Mafia &amp; Mafia Boss</h3>
+                <div class="dropdown">
+                    <h4>Description:</h4>
+                    <ul>
+                        <li>Organise raids against rival gangs and businesses.</li>
+                        <li>Make money off the production and sale of drugs.</li>
+                        <li>Protect your gangs base.</li>
+                    </ul>
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li><em>See Generic Gang Rules</em></li>
+                    </ul>
+                </div>
+                <h3 class="red">Mayor</h3>
+                <div class="dropdown">
+                    <h4>Description:</h4>
+                    <ul>
+                        <li>Create laws and command the Police Chief.</li>
+                        <li>Place laws around the town by using /placelaws</li>
+                        <li>Can give people Gun Licenses for a certain cost.</li>
+                        <li>In times of chaos, the Mayor can initiate a /lockdown</li>
+                        <li>Secret Service protects the mayor.</li>
+                    </ul>
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li>As the Mayor, before initiating a lock down you must /broadcast the reason.</li>
+                        <li>As the Mayor, keep the laws realistic.</li>
+                        <li>As the Mayor, the laws you place must not breach server rules e.g. arrest anyone with the name 'Johnny' on site.</li>
+                        <li>As the Mayor, you may not act as a Police Officer. You may only unarrest players.</li>
+                        <li>As the Mayor, you may not be corrupt.</li>
+                        <li>The Default laws cannot be overridden by another law.</li>
+                    </ul>
+                </div>
+                <h3 class="red">Merchant</h3>
+                <div class="dropdown">
+                    <h4>Description:</h4>
+                    <ul>
+                        <li>Set up a shop and sell various items.</li>
+                        <li>Can sell food, armour, alcohol, health, pistol ammo and more.</li>
+                        <li>Can purchase a Gun Lab to supply customers with a weapon.</li>
+                        <li>Security is recommended.</li>
+                    </ul>
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li>As a Merchant, you can only sell items from your store.</li>
+                        <li>As a Merchant, you must sell items to the public from your own store. You may not base with other shopkeepers.</li>
+                    </ul>
+                </div>
+                <h3 class="red">Meth Cook</h3>
+                <div class="dropdown">
+                    <h4>Description:</h4>
+                    <ul>
+                        <li>Set up a meth lab.</li>
+                        <li>Cook drugs and sell them for cash.</li>
+                        <li>Produce high or low quality meth depending on your skill level.</li>
+                        <li>Consider recruiting a Hired Goon to protect your lab from thieves, gangs and cops.</li>
+                    </ul>
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li>As a Meth Cook, you are only allowed to base with the Hired Goon.</li>
+                    </ul>
+                </div>
+                <h3 class="red">Ninja</h3>
+                <div class="dropdown">
+                    <h4>Description:</h4>
+                    <ul>
+                        <li>Climb walls to reach targets. Use Grapple hook to get to tricky places.</li>
+                        <li>Comes with lockpick and keypad cracker to be used only to reach the target.</li>
+                        <li>Can only kill with provided shurikens, neck snap or any other melee weapon.</li>
+                        <li>Not allowed to steal from anyone. Must work alone.</li>
+                        <li>People can request a hit by pressing E on the Ninja.</li>
+                        <li>Use /hitprice to set hit price, must be less than $5000.</li>
+                    </ul>
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li>As a Ninja, do not Grapple Hook another player unless they are your hit.</li>
+                        <li>As a Ninja, you can only kill people with shurikens, neck snap or a melee weapon.</li>
+                        <li><em>See Hitman Rules</em></li>
+                    </ul>
+                </div>
+                <h3 class="red">Police Officer</h3>
+                <div class="dropdown">
+                    <h4>Description:</h4>
+                    <ul>
+                        <li>Patrol the streets and enforce the law.</li>
+                        <li>Protect citizens from criminals.</li>
+                    </ul>
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li>As a Police Officer, being corrupt does not mean you can RDM/RDA the mayor, join gangs or own illegal items. It simply means you may occasionally let someone pay for you to look the other way. Do not do something you wouldn't see in real life.</li>
+                        <li>As a Police Officer, do not random weapon check. You must have valid suspicion or permission to search a player.</li>
+                        <li>As a Police Officer, do not stun-stick or tazer abuse, use these weapons in moderation.</li>
+                        <li>As a Police Officer, do not random arrest; you must have a valid reason when arresting someone e.g. Attempted Murder.</li>
+                        <li>As a Police Officer, do not random warrant; you must have a legitimate reason for it.</li>
+                        <li>As a Police Officer, offering bail is encouraged but not required. Bail can not exceed $500</li>
+                        <li>As a Police Officer, you <strong><em>may</em></strong> baton rush to arrest criminals.</li>
+                        <li>As a Police Officer, you may only raid a bank to arrest a wanted/warranted individual, or to obtain illegal goods such as weapons or drugs. Money printers can be legally stored in banks, so these can not be touched.</li>
+                        <li>If arresting a criminal, the arresting police officer or the mayor must be the ones to offer bail.</li>
+                    </ul>
+                    <h4>Tips:</h4>
+                    <ul class="tips">
+                        <li>Any person with a weapon out on the street should be arrested on sight, regardless of licensing. There is no reason to have a gun out on the street.</li>
+                        <li>Organise raids on persons suspected to have printers/drugs/illegal weapons. Stun sticking gives significant cash rewards for destroying illegal entities.</li>
+                        <li>Police Officers should only unholster their weapons in life-threatening circumstances. Non-life threatening situations should be approached with the tazer.</li>
+                    </ul>
+                </div>
+                <h3 class="red">Police Chief</h3>
+                <div class="dropdown">
+                    <h4>Description:</h4>
+                    <ul>
+                        <li>The Chief is the leader of the Police and SWAT.</li>
+                        <li>Coordinate the police forces to bring law to the city.</li>
+                    </ul>
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li>As the Police Chief, you may not sell your job specific items to the general public.</li>
+                        <li>As the Police Chief, you may not be corrupt.</li>
+                        <li><em>See Police Officer Rules</em></li>
+                    </ul>
+                </div>
+                <h3 class="red">Radio Host</h3>
+                <div class="dropdown">
+                    <h4>Description:</h4>
+                    <ul>
+                        <li>Purchase a Microphone and play music to people.</li>
+                        <li>Set up a studio, and consider hiring security.</li>
+                        <li>Avoid playing music through your desktop microphone.</li>
+                        <li>Should use Virtual Audio Cable instead for better quality.</li>
+                    </ul>
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li>As a Radio Host, you cannot run through town with your radio playing, you must remain in one spot and if someone wants to listen they will buy a radio.</li>
+                        <li>As a Radio Host, try not to force people to listen to your radio. Set up in a place that is optional for players to visit (not in the main street), and don't place radios in places you do not own.</li>
+                    </ul>
+                </div>
+                <h3 class="red">Secret Service</h3>
+                <div class="dropdown">
+                    <h4>Description:</h4>
+                    <ul>
+                        <li>Must protect the mayor and act as a body guard.</li>
+                        <li>Follow orders that the Mayor gives.</li>
+                    </ul>
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li>A Secret Service officer is primarily designated to defend the mayor. You may carry out normal police work if the Mayor permits or there is no Mayor elected.</li>
+                        <li><em>See Police Rules</em></li>
+                    </ul>
+                </div>
+                <h3 class="red">Security Guard</h3>
+                <div class="dropdown">
+                    <h4>Description:</h4>
+                    <ul>
+                        <li>Gain employment from businesses.</li>
+                        <li>Protect their property against any break-ins.</li>
+                        <li>Can search people for weapons if neccessary.</li>
+                        <li>Can work for Gun Dealer, Merchant, Banker or Radio Host.</li>
+                        <li>Has a gun license by default.</li>
+                    </ul>
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li>A maximum of 2 security guards are allowed per establishment.</li>
+                        <li>As a Security Guard, you can only work for a legal shopkeeper i.e. not a Black Market Dealer.</li>
+                        <li>As a Security Guard, have the right to search any player on their private property.</li>
+                    </ul>
+                </div>
+                <h3 class="red">S.W.A.T</h3>
+                <div class="dropdown">
+                    <h4>Description:</h4>
+                    <ul>
+                        <li>An extension of the Police.</li>
+                        <li>Highly trained in heavy combat, the Police rely on the SWAT for assistance in raids.</li>
+                    </ul>
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li>S.W.A.T members should be primarily organising police raids on illegal establishments, however may act as a normal police officer in their spare time.</li>
+                        <li><em>See Police Rules</em></li>
+                    </ul>
+                </div>
+                <h3 class="red">Terrorist</h3>
+                <div class="dropdown">
+                    <h4>Description:</h4>
+                    <ul>
+                        <li>As the terrorist, your objective is to conduct terrorist attacks through the use of a jihad bomb.</li>
+                        <li>Find a safe location, purchase a bomb generator and bomb fuel and construct a jihad bomb.</li>
+                        <li>It takes 15 minutes for the bomb to generate.</li>
+                        <li>You will be rewarded cash for each victim of the jihad attack, and more if they are mayor or police.</li>
+                        <li>Remain isolated and be sneaky, as you are considered suspicious.</li>
+                        <li>The police will be on a look out for any suspected terrorists and may search you.</li>
+                    </ul>
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li>As the Terrorist, you are to only blow people up with your jihad bomb.</li>
+                        <li>As the Terrorist, you are not allowed to kidnap or raid.</li>
+                    </ul>
+                </div>
+                <h3 class="red">Thief</h3>
+                <div class="dropdown">
+                    <h4>Description:</h4>
+                    <ul>
+                        <li>Break into shops and houses and steal things.</li>
+                        <li>Pickpocket people for some extra cash.</li>
+                        <li>This is a solo job, however they are allowed to base and raid with one other thief.</li>
+                        <li>If raiding with another thief, must /advert Raid.</li>
+                    </ul>
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li>As a Thief, you may live and work with one other thief. If raiding together, you must <em><strong>advert raid</strong></em> with your partners name in the message, and advert when complete.</li>
+                        <li>As a Thief, you must <em><strong>advert raid</strong></em> and advert when complete.</li>
+                        <li>As a Thief, you must wait 10 seconds after advertising to commence your raid.</li>
+                    </ul>
+                </div>
+                <h3 class="red">Town Creep</h3>
+                <div class="dropdown">
+                    <h4>Description:</h4>
+                    <ul>
+                        <li>You creep people out.</li>
+                        <li>People consider you a stalker.</li>
+                        <li>Get paid to stalk targets in order to gain information,</li>
+                        <li>such as where a gang base is.</li>
+                    </ul>
+                    <h4>Rules:</h4>
+                    <ul>
+                        <li>As the Town Creep, you must charge a minimum of $100 to stalk someone.</li>
+                        <li>As the Town Creep, you must not kill your target unless it is self defence.</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="footer">
+                <p><strong>| haash | James |</strong> <a href="http://monumentalgaming.net/">monumentalgaming.net</a></p>
+            </div>
+        </div>
+        <div class="back">
+            <h2>Helpful Hints and Tips</h2>
+            <h3>1. General</h3>
+            <div class="dropdown">
+                <ul>
+                    <li>You can open chat my using Y (default) or use team chat U (default), you can chat to server wide by using //, /ooc or /a, using these is for out of character only, you cannot arrest people if they say they killed someone in this chat. You can use /advert that is for roleplay, and use /cr to call for the cops.</li>
+                    <li>You can press F4 (default, to find this out, or change it go &gt; Options &gt; Keyboard &gt; Games Modes &gt; Spare Two) to open a list of jobs, miscellaneous, shipments, ammo, vehicles and food. You can only buy shipments if you are a gun dealer, black market dealer or police chief, and you can only buy food if you are a merchant.</li>
+                    <li>If there is no staff on, you can demote players if they are continually breaking the rules, do not demote players who are breaking minor rules, and think about it before you demote them. If a player or prop surfing and you demote them, what is the point in that? They will just continue to prop surf, simply take screen shots by pressing F5, or getting out your camera tool. You can upload them to your profile by pressing shift + tab to open steam, and going down to the bottom left and opening view screen shots, and selecting the ones you want and pressing upload. If a player is RDMing, you can demote them, as they will lose their weapon, firstly you must /advert Demoting John Anderson, for Mass RDM, any objections? If there is objections, (valid ones) then you cannot continue to demote, if there is none, you /demote Anderson Mass RDM. Take screen shots and create a ban request using the correct format.</li>
+                </ul>
+            </div>
+            <h3>2. Donator Commands</h3>
+            <div class="dropdown">
+                <ul>
+                    <li>Donator commands can be used when a staff member is not on the server, did not witness it (such as mic spam), if there is a mic spammer and a staff member is not there, simply use @ Gagging / Muting John, mic spam / chat spam. If a staff member is not on the server, you can use the kick command to kick players that are constantly breaking the rules, you can do this by !votekick John Mass RDM. If there is multiple players with this name, you can use !menu, or ulx kick / gag / mute .</li>
+                </ul>
+            </div>
+            <h3>3. Jobs</h3>
+            <div class="dropdown">
+                <h3 class="red">Mayor</h3>
+                <div class="dropdown">
+                    <ul>
+                        <li>As mayor, you control the all of government officials. You can offer bail to anyone, but it is best to leave it to the officer that arrest the player. When you are mayor, you can set up laws that the players may or may not abbey. You have access to commands such as:
+                            <ul>
+                                <li>/placelaws - Creates a law board. There are many law boards already around the map.</li>
+                                <li>/addlaw - Adds a law.</li>
+                                <li>/removelaw - Removes a law.</li>
+                                <li>/resetlaws - Removes all laws except for the first 3 default laws.</li>
+                                <li>/givelicence - Must be looking at a player.</li>
+                                <li>/broadcast - Sends a red message across the entire server.</li>
+                                <li>/lockdown - Sends the city into a lockdown &lt; You must state the reason for the lockdown in broadcast.</li>
+                                <li>/unlockdown - Ends the lockdown.</li>
+                                <li>/lottery - Starts a lottery $ 50 minimum, $500 maximum.</li>
+                                <li>/agenda - Changes the agenda that only the government can see.</li>
+                                <li>/addagenda - Adds a line to the agenda, instead of re-making it.</li>
+                                <li>/wanted - Makes a player wanted.</li>
+                                <li>/warrant - Allows police to enter a building, if there is a mayor, police can issue a warrant and the mayor has to confirm it.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <h3 class="red">Law Enforcement</h3>
+                <div class="dropdown">
+                    <ul>
+                        <li>As a police officer, you must listen to the police chief and mayor at all times. You can only offer bail to the players you arrest. You patrol the city, keeping it safe. When you are police you can issue commands such as:
+                            <ul>
+                                <li>/wanted - Makes a player wanted</li>
+                                <li>/warrant - Allows police to enter a building, if there is a mayor, he / she has to confirm it</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <h3 class="red">Secret Service</h3>
+                <div class="dropdown">
+                    <ul>
+                        <li>As Secret Service, you must take orders from the mayor and police chief at all times. You can only offer bail to the players you arrest. You must stay with the mayor at all times, if there is no mayor or the mayor allows you to leave, you can conduct normal police roles.
+                            <ul>
+                                <li>/wanted - Makes a player wanted</li>
+                                <li>/warrant - Allows police to enter a building, if there is a mayor, he / she has to confirm it</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <h3 class="red">Police Chief</h3>
+                <div class="dropdown">
+                    <ul>
+                        <li>As Police Chief, you take orders from the mayor, and you can give orders to the other government officials. You can only offer bail to the players you arrest. You can buy shipments from the F4 menu &gt; shipments. You can issue commands such as:
+                            <ul>
+                                <li>/wanted - Makes a player wanted</li>
+                                <li>/warrant - Allows police to enter a building, if there is a mayor, he / she has to confirm it</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <h3 class="red">Hitman</h3>
+                <div class="dropdown">
+                    <ul>
+                        <li>As a hitman, you offer your services to players that want someone dead. You can change the hit price by entering in chat /hitprice $350 - $5000</li>
+                    </ul>
+                </div>
+                <h3 class="red">Merchant</h3>
+                <div class="dropdown">
+                    <ul>
+                        <li>As a merchant, you offer your service, by selling food. Armour, shipments of health, alcohol, and more. You can buy microwaves that re-stored the hunger to 100%, you can change the price by looking at it and typing, /price $50 - $500.</li>
+                    </ul>
+                </div>
+            </div>
+            <h3>4. Tools</h3>
+            <div class="dropdown">
+                <h3 class="red">Smart Constraint</h3>
+                <div class="dropdown">
+                    <ul>
+                        <li>Smart constraint an amazing tool when used properly. It allows you to easily select a lot of props and weld them together. It also produces a pretty pink colour when you click on a prop to show that you&#39;ve selected it. You can select props by left clicking them. Note that some materials that have been applied on props may affect the distinctness of the pink colouration on selection, beware. Clearing all selected props is done by pressing the &#39;R&#39; key or whatever your reload button is. Once the weld has been successfully completed, you should see a set of status messages in the bottom left of your screen.</li>
+                    </ul>
+                </div>
+                <h3 class="red">Fading Door</h3>
+                <div class="dropdown">
+                    <ul>
+                        <li>Fading doors allows the player to easily get into his / her base without breaking the rules. Firstly you select a hotkey that will open the fading door VIA your keyboard and allow it to connect to a keypad and button.</li>
+                        <li>Button to open the fading door, firstly you need to select the tool which is under construction and the third one down. This is where the hotkey comes in place, click the key to simulate box and change it to the hotkey that youve selected for the fading door. If you have none this correctly, using the use key, usually E, on the button, it should open the fading door.</li>
+                        <li>Keypad to open the fading door, firstly you need to select the tool which is under construction, eleventh one from the top. This is also where the hotkey is needed, click the access granted box and change it to the hotkey that youve selected for the fading door. See below for more.</li>
+                    </ul>
+                </div>
+                <h3 class="red">Keypad</h3>
+                <div class="dropdown">
+                    <ul>
+                        <li>Firstly you need to create a pass code for the keypad to work, it must be a 1-4 digit number e.g. 1234. Tick the secure mode and freeze, to ensure that no other players can see the code if they are near you and can see the keypad, and freeze, to make sure it will stick to the prop or wall. To change the how long the fading door will stay open, change the hold length to 4 seconds, which can be done by highlighting the current number and changing it to 4.</li>
+                    </ul>
+                </div>
+                <h3 class="red">Weld</h3>
+                <div class="dropdown">
+                    <ul>
+                        <li>Players who don&#39;t have access to precision, can use weld to snap objects like precision move. You can achieve this by selecting weld tool and right clicking on a prop and right clicking it again on another prop, causing it to go into a rotation mode, and to complete it, simply right click again.</li>
+                    </ul>
+                </div>
+                <h3 class="red">Precision Tool</h3>
+                <div class="dropdown">
+                    <ul>
+                        <li>Precision tool is an easier way to build bases, quickly and neatly. It allows you to snap props to the nearest 90?, push or pull props with exact accuracy, or move props from one prop to another. This can simply be done by selecting the amount that you wish push / pull amount, and hovering over the number currently there and replacing it with a number note going over 1000 will get you automatically banned.</li>
+                        <li>Apply, selecting this will allow you to, Left click on a prop which will pull it, and right clicking on the prop will push the prop in the direction you are pointing at.</li>
+                        <li>Move, selecting this mode will allow you to move a prop from its own and connect it different prop, by left clicking to select it and then left click again that will allow you to change the direction it will end up in. Moving the mouse around while in this state will allow you to move it in a direction, holding R and moving your mouse at the same time will change the direction, left clicking again, will place the prop there and in its direction.</li>
+                    </ul>
+                </div>
+                <h3 class="red">Advanced Duplicator</h3>
+                <div class="dropdown">
+                    <ul>
+                        <li>Advanced duplicator is the tool for saving your buildings after you&#39;ve completed them. Make sure you smart constraint your props first before advanced duplicating.</li>
+                        <li>To duplicate a set of props, all you need to do is right click one of the props, and the whole set will copy. After you get the 100% Ghosted completion message, all that&#39;s left to do is save the props to the server. In advanced duplicator, click the Save to Server button and type a name. That&#39;s it, your props are now saved! After you&#39;re done duplicating, please make sure to respawn your props. This means deleting the set of props go to Remove tool and right click a prop, it will delete any constrained props as well, and then place your duplication again.</li>
+                        <li>To place a duplication, all you need to do is locate the dupe that you want to place in your advanced duplicator, click it so it turns blue, and left click, but please MAKE SURE you have the following options ticked.
+                            <ul>
+                                <li>Paste Frozen</li>
+                                <li>Paste w/o Constraints</li>
+                                <li>These options respawn the props without constraints in order to stop the server from lagging.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <h3 class="red">Stacker</h3>
+                <div class="dropdown">
+                    <ul>
+                        <li>Stacker allows you to stack props on top, beside or under. Allowing building to be a lot easier. Simply tick freeze and no collide, and what you want the prop to stack relative to the world or prop. The options at the bottom allow you to change how far away it will spawn from the base prop, or what angle it will spawn at. Left clicking will spawn in the prop.</li>
+                    </ul>
+                </div>
+            </div>
+            <h3>5. Building</h3>
+            <div class="dropdown">
+                <h3 class="red">Phys Gun</h3>
+                <div class="dropdown">
+                    <ul>
+                        <li>You can rotate objects 90?, by simply holding down E + Shift and rotating it with your mouse. Or you can just use E to rotate it freely. You can right click to freeze the object you are holding, and scroll to make it go further or closer to you.</li>
+                    </ul>
+                </div>
+                <h3 class="red">Wire Basics</h3>
+                <div class="dropdown">
+                    <ul>
+                        <li>Wire Basics</li>
+                        <li>Wire tab is found at the top right. Q &gt; tools &gt; options &gt; utilities &gt; wire</li>
+                    </ul>
+                </div>
+                <h3 class="red">Auto Gun Store</h3>
+                <div class="dropdown">
+                    <ul>
+                        <li>Automatic Gun Store</li>
+                        <li>Creating this will allow the item to spawn when the correct amount is placed into the money pot. What you will need is:
+                            <ul>
+                                <li>Constant Value - enter the amount that the gun will cost</li>
+                                <li>Equal Gate</li>
+                                <li>User</li>
+                                <li>Money Pot</li>
+                                <li>Advanced Wiring Tool</li>
+                            </ul>
+                        </li>
+                        <li>Firstly wire the money pot so it will drop the money automatically, using the advanced wiring tool, hover over the money pot and use the scroll to select spawnamount to storedamount. Next wire A of the equal gate to the constant value, and B to the money pot storedamount. Wire the user to the money pot stored amount. You need to do these steps for each shipment you have, but you don&#39;t need to have multiple constant values, simply increase the amount on the tool.</li>
+                    </ul>
+                </div>
+                <h3 class="red">Timed Fading Door</h3>
+                <div class="dropdown">
+                    <ul>
+                        <li>Creating this on your windows for defence, will allow you to not be called on by other players for fading door abuse, as fading doors must be open for 1 second. What you will need is:
+                            <ul>
+                                <li>Wire button</li>
+                                <li>Constant Value</li>
+                                <li>Delay</li>
+                                <li>Fading Door</li>
+                            </ul>
+                        </li>
+                        <li>Firstly create the fading door on the windows for the defence. Once created, place wire buttons without toggle enabled on each window. Wire CLK of the delay gate to the button, and hold to the constant value which is 1 second. Wire the fading door to out on the delay gate.</li>
+                    </ul>
+                </div>
+                <h3 class="red">Wire Hydraulics</h3>
+                <div class="dropdown">
+                    <ul>
+                        <li>Normal hydraulics were banned due to miss use by players, this tutorial will show you create wire hydraulics correctly. What you will need is:
+                            <ul>
+                                <li>The props you are using the hydraulics on</li>
+                                <li>Wire Hydraulic</li>
+                                <li>Smoother Gate &gt; Search gate, then smoother in the gate tool</li>
+                                <li>If than else &gt; Search gate, then smoother in the gate tool</li>
+                                <li>Constant Value</li>
+                                <li>Wire Button</li>
+                            </ul>
+                        </li>
+                        <li>To wire it up:
+                            <ul>
+                                <li>Firstly, you need to set up the hydraulic to the two objects ( in this case, we are making an elevator ) ensuring that fixed is ticked before you do this.</li>
+                                <li>Right click on the base prop ( the prop that will be on the ground ) so the rope is showing.</li>
+                                <li>Left click anywhere ( preferably on the ground, or where you are putting all your gates ).</li>
+                                <li>Next physgun the prop that the player will stand on to go up, to the desired height you want.</li>
+                                <li>Next enter the following values in to the constant value, hover over the hydraulic to reveal a value that shows how high the prop is and enter that value into the constant value.</li>
+                                <li>Add one which is what the elevator will decent to, add 100000, 70 and how long you want the elevator to the hold on the ground for ( in this case 7 ).</li>
+                                <li>Wire A of the smoother to out on the If then else gate, and rate of the smoother to 70 on the constant value.</li>
+                                <li>Moving on to the delay gate, wire CLK to the button, wire hold on the delay gate to 7 on the constant value.</li>
+                                <li>Wire A on the If than else gate to delay gate out, B to 1 on the constant value and C to the height of the hydraulic.</li>
+                                <li>Length on the hydraulic to smoother out, and constant on the hydraulic to 100000 on the constant value.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <h3 class="red">Wire Camera</h3>
+                <div class="dropdown">
+                    <ul>
+                        <li>Wire camera is basically the same as the RT camera, except lots of people use the RT cameras at once. Using this will avoid arguments, and you can have a personal RT camera. What you will need:
+                            <ul>
+                                <li>Camera Controller</li>
+                                <li>Numpad Input ( set it to toggle and remember the key you set )</li>
+                            </ul>
+                        </li>
+                        <li>Firstly wire the Position vector of the Camera to the Vector/Position of the GPS. And wire Activated of the Camera to the numpad Input. Press the key for the numpad input and it will immediately show you what your camera is seeing. What you see is not the point of view from the camera, but from the GPS. To change the location of your &#39;camera&#39; you need to move the GPS. You can rotate your screen when inside the camera.</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="footer">
+                <p><strong>| haash | James |</strong> <a href="http://monumentalgaming.net/">monumentalgaming.net</a></p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        //<![CDATA[
+        $('.input1').click(function() {
+            $('.flipcard').toggleClass('flip');
+        });
+        $("h3").click(function() {
+            var isVisible = $(this).next().is(":visible");
+            $(this).next().slideToggle();
+            var expandArrow = $(this).children(".icons8-Expand-Arrow");
+            var collapseArrow = $(this).children(".icons8-Collapse-Arrow");
+            if (!isVisible) {
+                expandArrow.fadeOut(200, function() {
+                    collapseArrow.fadeIn(200);
+                });
+            } else {
+                collapseArrow.fadeOut(200, function() {
+                    expandArrow.fadeIn(200);
+                });
+            }
+        });
+        $("#expandall").click(function() {
+            var areAllOpen = true;
+            $(".dropdown").each(function(index) {
+                if ($(this).is(":visible")) {
+                    areAllOpen = false;
+                }
+            });
+            if (areAllOpen) {
+                $(".dropdown").slideDown();
+            } else {
+                $(".dropdown").slideUp();
+            }
+        })
+        $("h3").append('<img class="icon icons8-Expand-Arrow" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAqklEQVRIie2UQRHDIBQFIwEJlYCESIgEJMRBJERCJVQCEpBQCUjYXmD6pqUFJhzZI5PsZj6EZZlMhgE4wAzwGMCV5AARsBfkFngm1/ZZDVciSR6TIwC30kOeN9u35qd8Fbn/O2rgLhHXIN9FfjbtI3BI5KjIM2dV3PNy+trM3iUXySoSn9aMjDG2jLEWsRIJwEPkzQehJRIlNE4ukfyvlM/4wMjl62Qy6eMFZgsz/LK8UWwAAAAASUVORK5CYII=" width="24" height="24">');
+        $("h3").append('<img class="icon icons8-Collapse-Arrow" style="display: none;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAoklEQVRIie2SUQ2EMAxAJwEJSJgEJCABCXMwCUg4CUhAwiQgAQmPn/WuWXKXZjf42kv2szavTVvnOp1HAYZb5cAGpOaFAA8cfDgBf4c85demCDBlEcAuo8mjEqZaeVDytZx7/hOWGrmw/siLKi9a5bqz0KoZOcOXWuBi6si9dyXs3+Sbks9WuXJ4VSSVwfkfeVFEDiOUwQiMtXLlGSy763TsXLpPLbHeHnSKAAAAAElFTkSuQmCC" width="24" height="24">');
+        //]]>
+    </script>
 </body>
 </html>
